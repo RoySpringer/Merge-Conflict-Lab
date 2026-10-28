@@ -2,7 +2,7 @@
 
 ## Doelgroep en leerdoelen
 
-Voor beginnende HBO-ICT-studenten die al weten wat branches en commits zijn. De les focust uitsluitend op inhoudelijke Git merge-conflicten. Er is voor de website geen Git-installatie nodig.
+Voor beginnende ICT-studenten die al weten wat branches en commits zijn. De les focust uitsluitend op inhoudelijke Git merge-conflicten. Er is voor de website geen Git-installatie nodig.
 
 Na afloop kan de student:
 
@@ -17,6 +17,19 @@ Na afloop kan de student:
 Een student laat beheersing zien wanneer die alle vijf missies voltooit, in missie 4 “limit = 30” combineert met “participants.length < limit”, de tests uitvoert en in de afsluitcheck uitlegt waarom “Accept Current” niet automatisch veilig is.
 
 Voortgang blijft alleen in de browser. Laat studenten hun eindsamenvatting tonen of als pdf bewaren.
+
+## Uitdagende vervolgroute (35-45 minuten)
+
+Na de vijf basismissies wordt een aparte vervolgpagina vrijgegeven. Deze route is bedoeld voor snelle studenten, een tweede lesmoment of verdieping in duo's. De ondersteuning is bewust verder afgebouwd.
+
+De student:
+
+1. reconstrueert één oplossing vanuit een basisversie en twee afwijkende branches;
+2. triageert meerdere conflicttypen in `git status`;
+3. combineert twee productwijzigingen zelfstandig en bewijst de werking met tests;
+4. beoordeelt een groene merge kritisch op gedrag dat niet door bestaande tests wordt gemeten.
+
+Laat studenten bij dossier 1 en 4 eerst individueel kiezen en daarna hun argument in een duo verdedigen. Bij dossier 3 geeft de docent geen codehint: vraag alleen welke productregel nog niet door een test wordt bewezen.
 
 ## Lesopzet (75 minuten)
 
@@ -73,6 +86,13 @@ Bij 30 aanwezige deelnemers mag niemand meer inschrijven. De vergelijking “<= 
 
 Git merge --abort is een geldige uitweg als de merge niet moet doorgaan, maar geen stap in de normale afronding.
 
+### Uitdagende route
+
+- **Dossier 1:** combineer `active`, `hasPaid` en `!blocked`.
+- **Dossier 2:** alle drie de paden onder `Unmerged paths` vragen om een beslissing; `README.md` niet.
+- **Dossier 3:** pas eerst 10% studentenkorting toe, daarna € 5 couponkorting, bewaak nul als ondergrens en rond het eindbedrag af op twee decimalen.
+- **Dossier 4:** onderzoek of de analytics-aanroep gewenst gedrag is en voeg daarvoor passende controle toe. Groene tests bewijzen alleen wat ze meten.
+
 ## Misconcepties en feedforward
 
 - **“HEAD is altijd mijn feature-branch.”** Vraag: “Op welke branch stond je toen je merge uitvoerde?”
@@ -93,7 +113,7 @@ De site heeft geen backend of externe bibliotheken. Voortgang staat alleen in lo
 
 ## Bronnen
 
-- Aangeleverde presentatie *Sprint 1 HBO-ICT x Studiekiezers - online les - Retrospective, merging en mergeconflicts*, slides 17-23.
+- Aangeleverde lespresentatie over retrospective, merging en merge-conflicten, slides 17-23.
 - Git merge, “How to resolve conflicts”: https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts
 - Pro Git, “Basic Merge Conflicts”: https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts
 - Git gitattributes, conflictmarkers: https://git-scm.com/docs/gitattributes#_built_in_merge_drivers
