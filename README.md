@@ -34,5 +34,5 @@ Er is geen buildstap, package manager, database of geheime sleutel nodig.
 - DOCENTHANDLEIDING.md: lesplan, antwoorden en misconcepties;
 - .nojekyll: voorkomt Jekyll-verwerking.
 
-Voortgang staat alleen in localStorage en kan met **Wis mijn voortgang** worden verwijderd. Doorloop na wijzigingen alle vijf missies en de vier uitdagende dossiers op desktop en mobiel.
+Voortgang staat alleen in localStorage en kan met **Wis mijn voortgang** worden verwijderd. Doorloop na wijzigingen alle vijf missies en de vijf uitdagende dossiers op desktop en mobiel.
 
