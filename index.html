@@ -2,7 +2,7 @@
 <html lang="nl">
 <head>
 <meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
-<meta name="description" content="Interactieve HBO-ICT-oefening over Git merge-conflicten.">
+<meta name="description" content="Interactieve ICT-oefening over Git merge-conflicten.">
 <title>Merge Conflict Lab</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
 </head>
 <body>
@@ -10,7 +10,7 @@
 <header><a class="brand" href="#top"><b>&lt;&lt;</b> Merge Conflict Lab</a><div class="progress"><span id="progressText">0 van 5 missies</span><i><em id="progressBar"></em></i></div></header>
 <main id="top">
 <section class="hero shell">
-  <div><p class="eyebrow">Online practicum · HBO-ICT · circa 55 minuten</p><h1>Git pauzeert.<br><span>Jij beslist.</span></h1>
+  <div><p class="eyebrow">Online practicum · ICT · circa 55 minuten</p><h1>Git pauzeert.<br><span>Jij beslist.</span></h1>
   <p class="lead">Leer een merge-conflict lezen, redeneer vanuit de bedoeling achter de code en lever een geteste oplossing op. Alles gebeurt in je browser.</p>
   <div class="actions"><a class="button primary" href="#start">Start de missie</a><button class="button ghost" id="resetProgress">Wis mijn voortgang</button></div></div>
   <div class="terminal"><div class="dots">● ● ● <small>terminal</small></div><pre><code><span>$</span> git merge feature/inschrijven
@@ -94,8 +94,13 @@ return participants.length &lt;= limit;</code></pre></div></div>
 
 <article class="mission" data-mission="5"><aside><b>5</b><span>Afronden</span></aside><div class="content"><div class="mission-head"><div><small>ZONDER CHECKLIST</small><h3>Wat doe je bij een merge-conflict?</h3></div><mark>Nog te doen</mark></div>
 <div class="briefing"><b>De situatie</b><p>Je teamgenoot heeft nieuwe code gepusht. Jij haalt de wijzigingen binnen met <code>git pull</code>. Git stopt: in <code>capacity.js</code> zit een merge-conflict. Zet vanaf dat moment de acties in de juiste volgorde.</p></div>
-<p>Klik steeds de eerstvolgende actie aan.</p><div class="sequence"><div><h4>Beschikbaar</h4><div id="actionBank"></div></div><div><h4>Jouw volgorde</h4><ol id="sequenceList"><li class="placeholder">Nog geen acties gekozen</li></ol></div></div>
+<p>Klik steeds de eerstvolgende actie aan. Verkeerde stap gekozen? Gebruik het kruisje om die stap terug te zetten.</p><div class="sequence"><div><h4>Beschikbaar</h4><div id="actionBank"></div></div><div><h4>Jouw volgorde</h4><ol id="sequenceList"><li class="placeholder">Nog geen acties gekozen</li></ol></div></div>
 <div class="actions"><button class="button check" data-check="sequence">Controleer volgorde</button><button class="linkbutton" id="resetSequence">Begin opnieuw</button></div><div class="feedback" id="sequenceFeedback" aria-live="polite"></div></div></article>
+</section>
+
+<section class="challenge-teaser shell" id="verdieping">
+<div><p class="eyebrow">Vervolgroute</p><h2>Klaar voor minder houvast?</h2><p>In de uitdagende route reconstrueer je conflicten, triageer je meerdere bestanden en bouw je zelfstandig één werkende oplossing uit twee branches.</p></div>
+<div class="challenge-card"><span>4 nieuwe dossiers · circa 35 minuten</span><h3>Uitdagende route</h3><p>De context wordt complexer en de feedback komt pas nadat jij een keuze hebt gemaakt of de tests hebt uitgevoerd.</p><a class="button primary locked" id="challengeLink" href="challenge.html" aria-disabled="true">Voltooi eerst de 5 missies</a><small id="challengeLock">Deze route wordt vrijgegeven na missie 5.</small></div>
 </section>
 
 <section class="debrief shell"><div><p class="eyebrow">Debrief</p><h2>Kun je het straks zonder deze site?</h2><p>Een merge-conflict is geen puzzel met altijd één “juiste” branch. De code moet één samenhangend resultaat vormen dat past bij de bedoeling en door de tests komt.</p><div class="mantra"><span>status</span> → <span>begrijpen</span> → <span>oplossen</span> → <span>testen</span> → <span>toevoegen + committen</span></div></div>
@@ -109,7 +114,7 @@ return participants.length &lt;= limit;</code></pre></div></div>
 <a href="https://git-scm.com/docs/gitattributes#_built_in_merge_drivers" target="_blank" rel="noreferrer">Git: conflictmarkers ↗</a>
 </div></section>
 </main>
-<footer><p>Merge Conflict Lab · HBO-ICT</p><a href="DOCENTHANDLEIDING.md">Docenthandleiding</a></footer>
+<footer><p>Merge Conflict Lab · ICT</p><a href="DOCENTHANDLEIDING.md">Docenthandleiding</a></footer>
 <script src="app.js"></script>
 </body></html>
 
