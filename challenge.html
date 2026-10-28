@@ -7,10 +7,10 @@
 </head>
 <body class="challenge-page">
 <a class="skip" href="#dossiers">Ga naar de dossiers</a>
-<header><a class="brand" href="index.html"><b>&lt;&lt;</b> Merge Conflict Lab</a><div class="progress"><span id="challengeProgressText">0 van 4 dossiers</span><i><em id="challengeProgressBar"></em></i></div></header>
+<header><a class="brand" href="index.html"><b>&lt;&lt;</b> Merge Conflict Lab</a><div class="progress"><span id="challengeProgressText">0 van 5 dossiers</span><i><em id="challengeProgressBar"></em></i></div></header>
 <main>
 <section class="challenge-hero shell">
-  <div><p class="eyebrow">Uitdagende route · ICT · circa 35 minuten</p><h1>Minder steun.<br><span>Meer afwegen.</span></h1><p class="lead">Je krijgt complexere informatie, meerdere conflicten tegelijk en tests die niet het hele verhaal vertellen. Jij onderbouwt wat één samenhangende oplossing moet worden.</p><div class="actions"><a class="button primary" href="#dossiers">Open dossier 1</a><a class="button ghost" href="index.html">Terug naar de basisroute</a></div></div>
+  <div><p class="eyebrow">Uitdagende route · ICT · circa 40 minuten</p><h1>Minder steun.<br><span>Meer afwegen.</span></h1><p class="lead">Je krijgt complexere informatie, meerdere conflicten tegelijk en tests die niet het hele verhaal vertellen. Jij onderbouwt wat één samenhangende oplossing moet worden.</p><div class="actions"><a class="button primary" href="#dossiers">Open dossier 1</a><a class="button ghost" href="index.html">Terug naar de basisroute</a></div></div>
   <div class="challenge-rules"><p class="eyebrow">Spelregels</p><ol><li>Lees eerst de productregel.</li><li>Werk vanuit de bedoeling, niet vanuit een favoriete branch.</li><li>Gebruik feedback pas na je eigen beslissing.</li><li>Groene tests zijn bewijs, maar niet altijd genoeg bewijs.</li></ol></div>
 </section>
 
@@ -30,7 +30,20 @@
 <label><input type="radio" name="reconstruct" value="both">Beide regels achter elkaar laten staan</label>
 </fieldset><button class="button check" id="checkReconstruct">Beoordeel mijn oplossing</button><div class="feedback" id="reconstructFeedback" aria-live="polite"></div></div></article>
 
-<article class="mission challenge-mission" data-challenge="2"><aside><b>2</b><span>Triage</span></aside><div class="content"><div class="mission-head"><div><small>MEERDERE BESTANDEN</small><h3>Wat vraagt om een merge-beslissing?</h3></div><mark>Nog te doen</mark></div>
+<article class="mission challenge-mission" data-challenge="2"><aside><b>2</b><span>Kiezen</span></aside><div class="content"><div class="mission-head"><div><small>COMBINEREN?</small><h3>Bewaar je echt beide versies?</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>Het besluit</b><p>Na een beveiligingsreview vervangt het team inloggen met een gebruikersnaam volledig door inloggen met een e-mailadres. Gebruikersnamen mogen niet meer als inlognaam werken.</p></div>
+<p>HEAD bevat de oude manier. De inkomende branch voert het nieuwe besluit uit. Welke oplossing past bij de productregel?</p>
+<div class="review-grid"><div><b>HEAD</b><pre><code>const identity = user.username;
+return signIn(identity, password);</code></pre></div><div><b>feature/email-login</b><pre><code>const identity = user.email;
+return signIn(identity, password);</code></pre></div></div>
+<fieldset class="stack">
+<label><input type="radio" name="replacement" value="head">Alleen HEAD behouden</label>
+<label><input type="radio" name="replacement" value="incoming">Alleen de inkomende versie behouden</label>
+<label><input type="radio" name="replacement" value="combine">Combineren: e-mailadres óf gebruikersnaam toestaan</label>
+<label><input type="radio" name="replacement" value="both">Beide aanroepen achter elkaar uitvoeren</label>
+</fieldset><button class="button check" id="checkReplacement">Beoordeel mijn oplossing</button><div class="feedback" id="replacementFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission challenge-mission" data-challenge="3"><aside><b>3</b><span>Triage</span></aside><div class="content"><div class="mission-head"><div><small>MEERDERE BESTANDEN</small><h3>Wat vraagt om een merge-beslissing?</h3></div><mark>Nog te doen</mark></div>
 <div class="briefing"><b>De situatie</b><p>Een merge raakt vier bestanden. Selecteer alle paden waarvoor Git nog een inhoudelijke beslissing van jou nodig heeft. Een gewone lokale wijziging hoort niet bij je selectie.</p></div>
 <pre class="status-output"><code>$ git status
 Unmerged paths:
@@ -47,7 +60,7 @@ Changes not staged for commit:
 <label><input type="checkbox" name="triage" value="readme"><code>README.md</code></label>
 </fieldset><button class="button check" id="checkTriage">Controleer mijn triage</button><div class="feedback" id="triageFeedback" aria-live="polite"></div></div></article>
 
-<article class="mission challenge-mission" data-challenge="3"><aside><b>3</b><span>Bouwen</span></aside><div class="content"><div class="mission-head"><div><small>ZELFSTANDIGE OPLOSSING</small><h3>Behoud beide productwijzigingen</h3></div><mark>Nog te doen</mark></div>
+<article class="mission challenge-mission" data-challenge="4"><aside><b>4</b><span>Bouwen</span></aside><div class="content"><div class="mission-head"><div><small>ZELFSTANDIGE OPLOSSING</small><h3>Behoud beide productwijzigingen</h3></div><mark>Nog te doen</mark></div>
 <div class="briefing"><b>De regels</b><p>Studenten krijgen eerst 10% korting. Daarna gaat bij coupon <code>WELCOME</code> nog € 5 van het bedrag af. Het eindbedrag kan nooit negatief zijn en wordt afgerond op twee decimalen.</p></div>
 <p>Los het conflict op in de editor. Je ziet de testgevallen pas nadat je ze uitvoert.</p>
 <div class="editor"><div>JS &nbsp; pricing.js <b>U</b></div><textarea id="challengeEditor" spellcheck="false" aria-label="Los het prijsconflict op">function finalPrice(price, isStudent, coupon) {
@@ -61,7 +74,7 @@ Changes not staged for commit:
 }</textarea></div>
 <div class="actions"><button class="button test" id="runChallengeTests">Voer de tests uit</button><button class="linkbutton" id="restoreChallengeCode">Herstel conflict</button></div><div class="feedback" id="challengeCodeFeedback" aria-live="polite"></div><div class="tests" id="challengeTestPanel" aria-live="polite" hidden></div></div></article>
 
-<article class="mission challenge-mission" data-challenge="4"><aside><b>4</b><span>Review</span></aside><div class="content"><div class="mission-head"><div><small>GROENE TESTS</small><h3>Toch goedkeuren?</h3></div><mark>Nog te doen</mark></div>
+<article class="mission challenge-mission" data-challenge="5"><aside><b>5</b><span>Review</span></aside><div class="content"><div class="mission-head"><div><small>GROENE TESTS</small><h3>Toch goedkeuren?</h3></div><mark>Nog te doen</mark></div>
 <div class="briefing"><b>De situatie</b><p>Een teamgenoot heeft een conflict opgelost. De bestaande tests voor bedrag en valuta zijn groen. In HEAD stond ook een analytics-aanroep; die ontbreekt in het eindresultaat.</p></div>
 <div class="review-grid"><div><b>HEAD vóór de merge</b><pre><code>analytics.track("price-calculated");
 return rounded;</code></pre></div><div><b>Opgelost resultaat</b><pre><code>return {
