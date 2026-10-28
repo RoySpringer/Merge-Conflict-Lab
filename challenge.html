@@ -1,0 +1,85 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Uitdagende ICT-oefenroute over Git merge-conflicten.">
+<title>Uitdagende route · Merge Conflict Lab</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css"><link rel="stylesheet" href="challenge.css">
+</head>
+<body class="challenge-page">
+<a class="skip" href="#dossiers">Ga naar de dossiers</a>
+<header><a class="brand" href="index.html"><b>&lt;&lt;</b> Merge Conflict Lab</a><div class="progress"><span id="challengeProgressText">0 van 4 dossiers</span><i><em id="challengeProgressBar"></em></i></div></header>
+<main>
+<section class="challenge-hero shell">
+  <div><p class="eyebrow">Uitdagende route · ICT · circa 35 minuten</p><h1>Minder steun.<br><span>Meer afwegen.</span></h1><p class="lead">Je krijgt complexere informatie, meerdere conflicten tegelijk en tests die niet het hele verhaal vertellen. Jij onderbouwt wat één samenhangende oplossing moet worden.</p><div class="actions"><a class="button primary" href="#dossiers">Open dossier 1</a><a class="button ghost" href="index.html">Terug naar de basisroute</a></div></div>
+  <div class="challenge-rules"><p class="eyebrow">Spelregels</p><ol><li>Lees eerst de productregel.</li><li>Werk vanuit de bedoeling, niet vanuit een favoriete branch.</li><li>Gebruik feedback pas na je eigen beslissing.</li><li>Groene tests zijn bewijs, maar niet altijd genoeg bewijs.</li></ol></div>
+</section>
+
+<section class="challenge-intro shell"><p class="eyebrow">Leerdoel</p><h2>Van conflict oplossen naar professioneel beoordelen</h2><p>Na deze route kun je een complexe merge reconstrueren, meerdere conflicttypen triageren, veranderingen inhoudelijk combineren en een ogenschijnlijk werkende oplossing kritisch reviewen.</p><div class="challenge-route"><span>reconstrueren</span> → <span>triageren</span> → <span>bouwen + testen</span> → <span>reviewen</span></div></section>
+
+<section class="challenge-dossiers shell" id="dossiers">
+<article class="mission challenge-mission" data-challenge="1"><aside><b>1</b><span>Reconstructie</span></aside><div class="content"><div class="mission-head"><div><small>GEEN HINTS</small><h3>Drie versies, één productregel</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De regel</b><p>Een gebruiker krijgt alleen toegang als het account actief en betaald is én de gebruiker niet geblokkeerd is.</p></div>
+<p>Beide branches begonnen bij dezelfde basis. Bepaal welke oplossing de bedoeling volledig bewaart.</p>
+<div class="three-way"><div><b>Basis</b><pre><code>const access = user.active;</code></pre></div><div><b>HEAD</b><pre><code>const access = user.active
+  && !user.blocked;</code></pre></div><div><b>feature/payment</b><pre><code>const access = user.active
+  && user.hasPaid;</code></pre></div></div>
+<fieldset class="stack">
+<label><input type="radio" name="reconstruct" value="head">Alleen HEAD: <code>active && !blocked</code></label>
+<label><input type="radio" name="reconstruct" value="incoming">Alleen feature/payment: <code>active && hasPaid</code></label>
+<label><input type="radio" name="reconstruct" value="combine">Combineren: <code>active && hasPaid && !blocked</code></label>
+<label><input type="radio" name="reconstruct" value="both">Beide regels achter elkaar laten staan</label>
+</fieldset><button class="button check" id="checkReconstruct">Beoordeel mijn oplossing</button><div class="feedback" id="reconstructFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission challenge-mission" data-challenge="2"><aside><b>2</b><span>Triage</span></aside><div class="content"><div class="mission-head"><div><small>MEERDERE BESTANDEN</small><h3>Wat vraagt om een merge-beslissing?</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De situatie</b><p>Een merge raakt vier bestanden. Selecteer alle paden waarvoor Git nog een inhoudelijke beslissing van jou nodig heeft. Een gewone lokale wijziging hoort niet bij je selectie.</p></div>
+<pre class="status-output"><code>$ git status
+Unmerged paths:
+  deleted by us:  public/old-logo.svg
+  both modified:  src/access.js
+  both added:     config/feature.json
+
+Changes not staged for commit:
+  modified:       README.md</code></pre>
+<fieldset class="stack triage-options">
+<label><input type="checkbox" name="triage" value="logo"><code>public/old-logo.svg</code></label>
+<label><input type="checkbox" name="triage" value="access"><code>src/access.js</code></label>
+<label><input type="checkbox" name="triage" value="config"><code>config/feature.json</code></label>
+<label><input type="checkbox" name="triage" value="readme"><code>README.md</code></label>
+</fieldset><button class="button check" id="checkTriage">Controleer mijn triage</button><div class="feedback" id="triageFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission challenge-mission" data-challenge="3"><aside><b>3</b><span>Bouwen</span></aside><div class="content"><div class="mission-head"><div><small>ZELFSTANDIGE OPLOSSING</small><h3>Behoud beide productwijzigingen</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De regels</b><p>Studenten krijgen eerst 10% korting. Daarna gaat bij coupon <code>WELCOME</code> nog € 5 van het bedrag af. Het eindbedrag kan nooit negatief zijn en wordt afgerond op twee decimalen.</p></div>
+<p>Los het conflict op in de editor. Je ziet de testgevallen pas nadat je ze uitvoert.</p>
+<div class="editor"><div>JS &nbsp; pricing.js <b>U</b></div><textarea id="challengeEditor" spellcheck="false" aria-label="Los het prijsconflict op">function finalPrice(price, isStudent, coupon) {
+<<<<<<< HEAD
+  const discounted = isStudent ? price * 0.9 : price;
+  return Math.round(discounted * 100) / 100;
+=======
+  const withCoupon = coupon === "WELCOME" ? price - 5 : price;
+  return Math.max(0, withCoupon);
+>>>>>>> feature/welcome-coupon
+}</textarea></div>
+<div class="actions"><button class="button test" id="runChallengeTests">Voer de tests uit</button><button class="linkbutton" id="restoreChallengeCode">Herstel conflict</button></div><div class="feedback" id="challengeCodeFeedback" aria-live="polite"></div><div class="tests" id="challengeTestPanel" aria-live="polite" hidden></div></div></article>
+
+<article class="mission challenge-mission" data-challenge="4"><aside><b>4</b><span>Review</span></aside><div class="content"><div class="mission-head"><div><small>GROENE TESTS</small><h3>Toch goedkeuren?</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De situatie</b><p>Een teamgenoot heeft een conflict opgelost. De bestaande tests voor bedrag en valuta zijn groen. In HEAD stond ook een analytics-aanroep; die ontbreekt in het eindresultaat.</p></div>
+<div class="review-grid"><div><b>HEAD vóór de merge</b><pre><code>analytics.track("price-calculated");
+return rounded;</code></pre></div><div><b>Opgelost resultaat</b><pre><code>return {
+  amount: rounded,
+  currency: "EUR"
+};</code></pre></div></div>
+<p>Welke reviewreactie is professioneel het sterkst?</p><fieldset class="stack">
+<label><input type="radio" name="review" value="approve">Goedkeuren: groene tests bewijzen dat de merge klopt.</label>
+<label><input type="radio" name="review" value="reject">Afkeuren: alles uit HEAD moet altijd behouden blijven.</label>
+<label><input type="radio" name="review" value="investigate">Nagaan of de analytics-gebeurtenis nog nodig is en daarvoor een relevante test of controle toevoegen.</label>
+<label><input type="radio" name="review" value="redo">De merge opnieuw uitvoeren en automatisch “Accept Both” kiezen.</label>
+</fieldset><button class="button check" id="checkReview">Dien mijn review in</button><div class="feedback" id="reviewFeedback" aria-live="polite"></div></div></article>
+</section>
+
+<section class="challenge-finish shell" id="challengeFinish" hidden><p class="eyebrow">Route voltooid</p><h2>Je beoordeelt nu méér dan markers</h2><p>Je hebt technische signalen, productregels, tests en verloren gedrag samen gebruikt. Dat is de kern van een professionele merge-review.</p><div class="mantra"><span>reconstrueer</span> → <span>begrijp bedoeling</span> → <span>combineer</span> → <span>test</span> → <span>review verloren gedrag</span></div><div class="actions"><a class="button primary" href="index.html">Terug naar de basisroute</a><button class="button ghost light" id="printChallenge">Print / bewaar als pdf</button></div></section>
+
+<section class="sources shell"><h2>Naslag</h2><p>Gebruik na je eigen denkwerk de officiële Git-documentatie om commando's en conflicttypen na te zoeken.</p><div><a href="https://git-scm.com/docs/git-status" target="_blank" rel="noreferrer">git status ↗</a><a href="https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts" target="_blank" rel="noreferrer">Conflicten oplossen ↗</a><a href="https://git-scm.com/book/en/v2/Git-Tools-Advanced-Merging" target="_blank" rel="noreferrer">Pro Git: advanced merging ↗</a></div></section>
+</main>
+<footer><p>Merge Conflict Lab · ICT · Uitdagende route</p><a href="DOCENTHANDLEIDING.md">Docenthandleiding</a></footer>
+<script src="challenge.js"></script>
+</body></html>
