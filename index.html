@@ -1,0 +1,115 @@
+<!doctype html>
+<html lang="nl">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="description" content="Interactieve HBO-ICT-oefening over Git merge-conflicten.">
+<title>Merge Conflict Lab</title><link rel="icon" href="favicon.svg" type="image/svg+xml"><link rel="stylesheet" href="style.css">
+</head>
+<body>
+<a class="skip" href="#oefeningen">Ga naar de oefeningen</a>
+<header><a class="brand" href="#top"><b>&lt;&lt;</b> Merge Conflict Lab</a><div class="progress"><span id="progressText">0 van 5 missies</span><i><em id="progressBar"></em></i></div></header>
+<main id="top">
+<section class="hero shell">
+  <div><p class="eyebrow">Online practicum · HBO-ICT · circa 55 minuten</p><h1>Git pauzeert.<br><span>Jij beslist.</span></h1>
+  <p class="lead">Leer een merge-conflict lezen, redeneer vanuit de bedoeling achter de code en lever een geteste oplossing op. Alles gebeurt in je browser.</p>
+  <div class="actions"><a class="button primary" href="#start">Start de missie</a><button class="button ghost" id="resetProgress">Wis mijn voortgang</button></div></div>
+  <div class="terminal"><div class="dots">● ● ● <small>terminal</small></div><pre><code><span>$</span> git merge feature/inschrijven
+Auto-merging register.js
+<b>CONFLICT (content)</b>: Merge conflict
+in register.js
+<strong>Automatic merge failed.</strong>
+
+<span>$</span> git status</code></pre><p>Git is niet stuk. Git vraagt om een inhoudelijke keuze.</p></div>
+</section>
+<section class="brief shell" id="start"><p class="eyebrow">Missiebriefing</p><h2>Wat kun je na afloop?</h2>
+<div class="outcomes">
+<article><b>01</b><h3>Herkennen</h3><p>Je vindt een conflict via de melding, <code>git status</code> en markers.</p></article>
+<article><b>02</b><h3>Lezen</h3><p>Je legt uit wat <code>HEAD</code>, de scheidslijn en de inkomende branch betekenen.</p></article>
+<article><b>03</b><h3>Beslissen</h3><p>Je kiest vanuit gewenste werking, niet blind voor één versie.</p></article>
+<article><b>04</b><h3>Opleveren</h3><p>Je verwijdert markers, test en rondt de merge bewust af.</p></article>
+</div><div class="route"><b>De route</b><span>herkennen</span> → <span>ontleden</span> → <span>beoordelen</span> → <span>zelf oplossen</span> → <span>afronden</span></div>
+</section>
+<section class="exercises shell" id="oefeningen"><div class="zone"><p class="eyebrow">Oefenroute</p><h2>Vijf missies, steeds minder steun</h2><p>Lees ook de feedback bij een goed antwoord: daarin staat de technische uitleg.</p></div>
+
+<article class="mission" data-mission="1"><aside><b>1</b><span>Herkennen</span></aside><div class="content"><div class="mission-head"><div><small>VEEL STEUN</small><h3>De signaalscanner</h3></div><mark>Nog te doen</mark></div>
+<p>Je voert <code>git status</code> uit. Bekijk de volledige uitvoer en kies daarna de regel die bewijst dat er een inhoudelijk merge-conflict is.</p>
+<pre class="status-output" aria-label="Uitvoer van git status"><code>$ git status
+On branch feature/registration
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+
+Unmerged paths:
+  (use "git add &lt;file&gt;..." to mark resolution)
+        <b>both modified:   register.js</b>
+
+Changes not staged for commit:
+        modified:   README.md</code></pre>
+<fieldset class="choices">
+<label><input type="radio" name="signal" value="pull"><span><code>Already up to date.</code><small>Na git pull</small></span></label>
+<label><input type="radio" name="signal" value="conflict"><span><code>both modified: register.js</code><small>Onder “Unmerged paths”</small></span></label>
+<label><input type="radio" name="signal" value="modified"><span><code>modified: register.js</code><small>Onder “Changes not staged”</small></span></label>
+<label><input type="radio" name="signal" value="branch"><span><code>On branch feature/login</code><small>Bovenaan git status</small></span></label>
+</fieldset><button class="button check" data-check="signal">Controleer</button><div class="feedback" id="signalFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission" data-mission="2"><aside><b>2</b><span>Ontleden</span></aside><div class="content"><div class="mission-head"><div><small>GERICHTE STEUN</small><h3>Lees de markers</h3></div><mark>Nog te doen</mark></div>
+<p>Je staat op <code>main</code> en voert <code>git merge feature/welkomst</code> uit. Koppel elk deel aan de juiste betekenis.</p><div class="marker-grid">
+<pre class="conflict"><code>&lt;&lt;&lt;&lt;&lt;&lt;&lt; HEAD
+<span>const title = "Welkom terug";</span>
+=======
+<b>const title = "Welkom, " + name;</b>
+&gt;&gt;&gt;&gt;&gt;&gt;&gt; feature/welkomst</code></pre>
+<div class="selects">
+<label>Boven <code>=======</code><select id="above"><option value="">Kies…</option><option value="current">huidige branch main</option><option value="incoming">inkomende branch</option><option value="base">gemeenschappelijke basis</option></select></label>
+<label>Onder <code>=======</code><select id="below"><option value="">Kies…</option><option value="current">huidige branch main</option><option value="incoming">inkomende feature-branch</option><option value="result">automatisch eindresultaat</option></select></label>
+<label><code>HEAD</code> wijst naar<select id="headMeaning"><option value="">Kies…</option><option value="main">de huidige branch main</option><option value="feature">altijd de feature-branch</option><option value="latest">de nieuwste regel</option></select></label>
+</div></div><button class="button check" data-check="markers">Controleer</button><div class="feedback" id="markersFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission" data-mission="3"><aside><b>3</b><span>Beoordelen</span></aside><div class="content"><div class="mission-head"><div><small>DENK EERST</small><h3>Niet klikken, maar begrijpen</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De situatie</b><p>Je werkt met je team aan een softwareproduct waarmee studenten zich voor workshops inschrijven. Na een review vraagt de klant om de capaciteit te verhogen van 24 naar <strong>30 plaatsen</strong>. Zodra er 30 deelnemers zijn, mag niemand meer inschrijven. Jij en een teamgenoot hebben allebei dezelfde functie aangepast; daardoor ontstaat dit conflict.</p></div>
+<p>Welke aanpak past bij de bedoeling?</p><div class="compare">
+<div><b>HEAD</b><pre><code>const limit = 24;
+return participants.length &lt; limit;</code></pre></div>
+<div><b>feature/capacity-30</b><pre><code>const limit = 30;
+return participants.length &lt;= limit;</code></pre></div></div>
+<fieldset class="stack">
+<label><input type="radio" name="intent" value="head">Alleen HEAD behouden</label>
+<label><input type="radio" name="intent" value="incoming">Alleen de inkomende versie behouden</label>
+<label><input type="radio" name="intent" value="combine">Combineren: limiet 30 én vergelijken met <code>&lt;</code></label>
+<label><input type="radio" name="intent" value="both">Beide blokken onder elkaar laten staan</label>
+</fieldset><button class="button check" data-check="intent">Controleer</button><div class="feedback" id="intentFeedback" aria-live="polite"></div></div></article>
+
+<article class="mission" data-mission="4"><aside><b>4</b><span>Oplossen</span></aside><div class="content"><div class="mission-head"><div><small>ZELF AAN HET STUUR</small><h3>De merge-editor</h3></div><mark>Nog te doen</mark></div>
+<p>Bewerk het bestand en voer daarna de tests uit. Ook een oplossing die er logisch uitziet kan op een grensgeval stuklopen; gebruik de testresultaten om je code te verbeteren.</p>
+<div class="editor"><div>JS &nbsp; capacity.js <b>U</b></div><textarea id="codeEditor" spellcheck="false" aria-label="Bewerk de conflicterende code">function canRegister(participants) {
+<<<<<<< HEAD
+  const limit = 24;
+  return participants.length < limit;
+=======
+  const limit = 30;
+  return participants.length <= limit;
+>>>>>>> feature/capacity-30
+}</textarea></div>
+<div class="actions"><button class="button test" id="runTests">Voer 3 tests uit</button><button class="linkbutton" id="restoreCode">Herstel conflict</button></div>
+<div class="feedback" id="codeFeedback" aria-live="polite"></div><div class="tests" id="testPanel" aria-live="polite" hidden></div></div></article>
+
+<article class="mission" data-mission="5"><aside><b>5</b><span>Afronden</span></aside><div class="content"><div class="mission-head"><div><small>ZONDER CHECKLIST</small><h3>Wat doe je bij een merge-conflict?</h3></div><mark>Nog te doen</mark></div>
+<div class="briefing"><b>De situatie</b><p>Je teamgenoot heeft nieuwe code gepusht. Jij haalt de wijzigingen binnen met <code>git pull</code>. Git stopt: in <code>capacity.js</code> zit een merge-conflict. Zet vanaf dat moment de acties in de juiste volgorde.</p></div>
+<p>Klik steeds de eerstvolgende actie aan.</p><div class="sequence"><div><h4>Beschikbaar</h4><div id="actionBank"></div></div><div><h4>Jouw volgorde</h4><ol id="sequenceList"><li class="placeholder">Nog geen acties gekozen</li></ol></div></div>
+<div class="actions"><button class="button check" data-check="sequence">Controleer volgorde</button><button class="linkbutton" id="resetSequence">Begin opnieuw</button></div><div class="feedback" id="sequenceFeedback" aria-live="polite"></div></div></article>
+</section>
+
+<section class="debrief shell"><div><p class="eyebrow">Debrief</p><h2>Kun je het straks zonder deze site?</h2><p>Een merge-conflict is geen puzzel met altijd één “juiste” branch. De code moet één samenhangend resultaat vormen dat past bij de bedoeling en door de tests komt.</p><div class="mantra"><span>status</span> → <span>begrijpen</span> → <span>oplossen</span> → <span>testen</span> → <span>toevoegen + committen</span></div></div>
+<form id="exitTicket"><h3>Afsluitcheck</h3><label>Waarom is “Accept Current” niet automatisch veilig?<textarea id="exitWhy" rows="3" placeholder="Omdat…"></textarea></label><label>Wat controleer je vóór <code>git add</code>?<select id="exitCheck"><option value="">Kies…</option><option value="markers">Alleen of markers weg zijn</option><option value="tests">Markers weg én applicatie werkt en is getest</option><option value="push">Of iemand al heeft gepusht</option></select></label><button class="button primary">Maak mijn samenvatting</button><div class="feedback" id="exitFeedback" aria-live="polite"></div></form></section>
+
+<section class="summary shell" id="personalSummary" hidden><p class="eyebrow">Jouw afronding</p><h2>Merge-conflict opgelost</h2><p id="summaryStatus"></p><div><article><b>Vast startpunt</b><span><code>git status</code></span></article><article><b>Beslisregel</b><span>Begrijp eerst de bedoeling achter beide wijzigingen.</span></article><article><b>Kwaliteitscheck</b><span>Geen markers, werkende code, tests groen.</span></article></div><button class="button ghost light" id="printSummary">Print / bewaar als pdf</button></section>
+
+<section class="sources shell"><h2>Naslag</h2><p>Gebaseerd op de aangeleverde lespresentatie en gecontroleerd met officiële Git-documentatie.</p><div>
+<a href="https://git-scm.com/docs/git-merge#_how_to_resolve_conflicts" target="_blank" rel="noreferrer">git merge: conflicten oplossen ↗</a>
+<a href="https://git-scm.com/book/en/v2/Git-Branching-Basic-Branching-and-Merging#_basic_merge_conflicts" target="_blank" rel="noreferrer">Pro Git: basic merge conflicts ↗</a>
+<a href="https://git-scm.com/docs/gitattributes#_built_in_merge_drivers" target="_blank" rel="noreferrer">Git: conflictmarkers ↗</a>
+</div></section>
+</main>
+<footer><p>Merge Conflict Lab · HBO-ICT</p><a href="DOCENTHANDLEIDING.md">Docenthandleiding</a></footer>
+<script src="app.js"></script>
+</body></html>
+
