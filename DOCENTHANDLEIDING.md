@@ -25,9 +25,10 @@ Na de vijf basismissies wordt een aparte vervolgpagina vrijgegeven. Deze route i
 De student:
 
 1. reconstrueert één oplossing vanuit een basisversie en twee afwijkende branches;
-2. triageert meerdere conflicttypen in `git status`;
-3. combineert twee productwijzigingen zelfstandig en bewijst de werking met tests;
-4. beoordeelt een groene merge kritisch op gedrag dat niet door bestaande tests wordt gemeten.
+2. herkent wanneer een nieuwe productregel de oude oplossing vervangt en combineren dus onjuist is;
+3. triageert meerdere conflicttypen in `git status`;
+4. combineert twee productwijzigingen zelfstandig en bewijst de werking met tests;
+5. beoordeelt een groene merge kritisch op gedrag dat niet door bestaande tests wordt gemeten.
 
 Laat studenten bij dossier 1 en 4 eerst individueel kiezen en daarna hun argument in een duo verdedigen. Bij dossier 3 geeft de docent geen codehint: vraag alleen welke productregel nog niet door een test wordt bewezen.
 
@@ -89,9 +90,10 @@ Git merge --abort is een geldige uitweg als de merge niet moet doorgaan, maar ge
 ### Uitdagende route
 
 - **Dossier 1:** combineer `active`, `hasPaid` en `!blocked`.
-- **Dossier 2:** alle drie de paden onder `Unmerged paths` vragen om een beslissing; `README.md` niet.
-- **Dossier 3:** pas eerst 10% studentenkorting toe, daarna € 5 couponkorting, bewaak nul als ondergrens en rond het eindbedrag af op twee decimalen.
-- **Dossier 4:** onderzoek of de analytics-aanroep gewenst gedrag is en voeg daarvoor passende controle toe. Groene tests bewijzen alleen wat ze meten.
+- **Dossier 2:** behoud alleen de inkomende e-maillogin. Combineren zou het expliciet verwijderde inloggen met gebruikersnaam opnieuw toestaan.
+- **Dossier 3:** alle drie de paden onder `Unmerged paths` vragen om een beslissing; `README.md` niet.
+- **Dossier 4:** pas eerst 10% studentenkorting toe, daarna € 5 couponkorting, bewaak nul als ondergrens en rond het eindbedrag af op twee decimalen.
+- **Dossier 5:** onderzoek of de analytics-aanroep gewenst gedrag is en voeg daarvoor passende controle toe. Groene tests bewijzen alleen wat ze meten.
 
 ## Misconcepties en feedforward
 
